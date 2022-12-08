@@ -3,8 +3,8 @@ const mongoose = require("mongoose");
 const app = express();
 const port = 4000;
 app.use(express.json())
-app.use("/api/note", require("./note"));
-app.use("/api/user", require("./user"));
+app.use("/api/note", require("./src/note"));
+app.use("/api/user", require("./src/user"));
 mongoose.set('strictQuery', true);
 mongoose.connect("mongodb+srv://Saurav:connectBabe@mydb.wqgpv.mongodb.net/?retryWrites=true&w=majority",()=>{
   console.log("successfully connected")
