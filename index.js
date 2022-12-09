@@ -6,7 +6,7 @@ const port = 4000;
 
 
 app.use(express.json())
-app.use(cors({credentials: true, origin: 'http://localhost:3000'}));
+app.use(cors());
 app.use("/api/note", require("./src/note"));
 app.use("/api/user", require("./src/user"));
 

@@ -17,7 +17,7 @@
     },
       {
         "key": "Access-Control-Allow-Origin",
-        "value": "*"
+        "value": "http://localhsot:3000"
       },
       {
         "key": "Access-Control-Allow-Methods",
