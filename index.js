@@ -2,10 +2,11 @@ const express = require ("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const app = express();
-
 const port = 4000;
-app.use(cors({credentials: true, origin: 'http://localhost:3000'}));
+
+
 app.use(express.json())
+app.use(cors({credentials: true, origin: 'http://localhost:3000'}));
 app.use("/api/note", require("./src/note"));
 app.use("/api/user", require("./src/user"));
 
