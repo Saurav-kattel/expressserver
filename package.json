@@ -15,7 +15,6 @@
     "express": "^4.18.2",
     "express-validator": "^6.14.2",
     "jsonwebtoken": "^8.5.1",
-    "proxy":"https://expressserver-saurav-kattel.vercel.app",
     "mongoose": "^6.8.0",
     "nodemailer": "^6.8.0",
     "nodemon": "^2.0.20"
