@@ -57,7 +57,6 @@ router.post("/signup", [
       let user = await userModel.findOne({
         email: req.body.email
       });
-      console.log(user);
       let token = await jwt.sign(user.id, JWT_SEC);
       res.status(200).json({
         msg: "success",
@@ -116,7 +115,9 @@ try {
     })
   })
 }catch(err) {
-  console.log(err);
+res.status(500).json({
+  err
+})
 }
 
 // user login endpoint
