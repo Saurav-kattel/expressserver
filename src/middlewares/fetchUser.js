@@ -12,7 +12,7 @@ const fetchUser = async (req,res ,next)=>{
   req.user = data;
 next();
 }catch(err){
-  res.status(500).send("Error occurred");
+  res.status(500).json({err});
 }
 }
 
