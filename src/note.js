@@ -12,9 +12,9 @@ router.post("/save", fetchUser, async (req,res)=>{
     description: req.body.description
   });
   Notes.save();
-  res.status(200).json({Notes});
+  res.status(200).json({msg: "success"});
  }catch(err){
-   res.status(500).send("Error occured");
+   res.status(500).json({err});
  }
 })
 
@@ -25,7 +25,7 @@ router.get("/getnotes", fetchUser, async (req,res)=>{
  let notes = await noteModel.find().where("userId"). equals(id);
   res.status(200).json({notes});
  }catch(err){
-   res.status(500).send("Error occured");
+   res.status(500).json({err});
  }
 })
 
@@ -67,13 +67,13 @@ router.delete("/delete/:id", fetchUser, async (req,res)=>{
 
    let notes = await noteModel.findById(req.params.id);
    if(notes.userId.toString() !== req.user){
-     return res.status(401).send("note not found");
+     return res.status(401).json({msg: "note not found"});
    }
    notes = await noteModel.findByIdAndDelete(req.params.id);
    
   res.status(200).json({msg: "successfully deleted"});
  }catch(err){
-   res.status(500).send("Error occured");
+   res.status(500).json({err});
  }
 })
 module.exports = router;
