@@ -8,11 +8,10 @@ const port = 4000;
 app.use(express.json())
 app.use(
   cors({
-    origin: {
+    origin: [
       "http://localhost:3000",
      "https://reactnotesfrontend.vercel.app"
-      
-    }
+    ]
   })
 );
 app.use("/api/note", require("./src/note"));
