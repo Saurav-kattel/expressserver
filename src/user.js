@@ -148,4 +148,28 @@ try {
 }catch(err) {
   console.log(err);
 }
+
+
+try {
+  router.post("/logout", fetchUser, async(req,
+    res)=> {
+const id = req.user;
+let user = await userModel.findById(id);
+    let passCheck = await bcrypt.compare(req.body.password, user.password);
+    if (!passCheck) {
+      return res.status(401).json({
+        msg: "invalid password"
+      });
+    };
+    let token = await jwt.sign(user.id, JWT_SEC);
+    res.status(200).json({
+      msg: "success",
+      logout: true
+    })
+  })
+}catch(err) {
+  return res.status(401).json({
+        msg: err
+      });
+}
 module.exports = router;
